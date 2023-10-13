@@ -47,7 +47,7 @@ class MagicDataBandit(DataBasedBandit):
             fpath = download_data(path, url, force_download)
             self.df = pd.read_csv(fpath, header=None)
         else:
-            self.df = fetch_data_with_header(path, "magic04.data")
+            self.df = pd.read_csv('https://raw.githubusercontent.com/epdavid1/genrl/master/data.csv')
 
         col = self.df.columns[-1]
         dummies = pd.get_dummies(self.df[col], prefix=col, drop_first=False)
